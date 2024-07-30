@@ -15,3 +15,9 @@ This diagram is specifically for model number 0135, `hank-emisar-2ch`.
 
 For all further details, see the generic
 [Diagram for the Andúril 2 UI](https://github.com/dirtydancing/anduril-tikz-diagram).
+
+The corresponding two commands are:
+
+`lualatex anduril-tikz-diagram-0135.tex`
+
+`pdfcrop --margins 5 anduril-tikz-diagram-0135.pdf && pdftoppm -png -r 300 anduril-tikz-diagram-0135-crop.pdf anduril-tikz-diagram-0135`
