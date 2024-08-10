@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-04 (Date: 2024-08-10)
+
+- Adapted diagram-0135 to updated generic diagram
+
 ## 2024-04-20.0135-03 (Date: 2024-08-01)
 
 - Added frame inside ramp image
