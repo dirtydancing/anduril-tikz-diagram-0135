@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-05 (Date: 2024-08-12)
+
+- Adjusted Mode memory
+
 ## 2024-04-20.0135-04 (Date: 2024-08-10)
 
 - Adapted diagram-0135 to updated generic diagram
