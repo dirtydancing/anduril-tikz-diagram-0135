@@ -344,7 +344,7 @@
         draw=none,
         sharp corners,
         minimum width=0.808cm,
-        minimum height=0.306cm,
+        minimum height=0.275cm,
         inner sep=0cm,
         outer sep=0cm,
         align=left
@@ -360,6 +360,8 @@
 
 \newcommand{\onelinetable}[1]{\mdseries\footnotesize{#1}}
 \newcommand{\firstlinetable}[1]{\onelinetable{#1}\\[-0.55ex]}
+
+\newcommand{\default}{\char"25C1}
 
 \begin{document}
 
@@ -494,9 +496,9 @@ at (current page.center)[
     anchor=north,
     align=center
 ]
-{Smooth};
+{Smooth\default{}};
 \node (Ramp Style Stepped)[
-    below left=0.05cm and 0.36cm+0.02cm of Ramp.south east, % +0.02cm
+    below left=0.05cm and 0.3cm+0.02cm of Ramp.south east, % +0.02cm
     % for vertical alignment
     anchor=north,
     align=center
@@ -1002,10 +1004,10 @@ node[
 % Candle from OFF
 \node (Candle from OFF)[
     extendedsimpleconfig-mode,
-    above right=0.65cm and 1.3cm of Lightning Storm from Police Strobe.east,
+    above right=0.65cm and 1.2cm of Lightning Storm from Police Strobe.east,
     anchor=west
 ]
-{\oneline{Candle}};
+{\oneline{Candle\default{}}};
 
 \draw (Lightning Storm from Police Strobe.east) edge[
     ->,
@@ -1338,7 +1340,7 @@ node[
 		{} & \makecell{
 	        \char"00B1{}0.30V, 0.05V steps\\
 	        1C = \char"2212{}0.30V\\
-	        7C = 0V (default)\\
+	        7C = 0V\default{}\\
 	        13C = +0.30V
 		}\\
 		{2} & \makecell{
@@ -1346,7 +1348,7 @@ node[
 	    }\\
 	    {} & \makecell{
 		    0C = Disable\\
-	        nC = n seconds
+	        nC = n seconds; 4s\default{}
 	    }
     \end{tabular}
 };
@@ -1388,7 +1390,7 @@ node[
 % Temp Check Thermal Config
 \node (Temp Check Thermal Config)[
     advancedtable,
-    above right=0.2cm and 1cm of Temp Check from Batt Check.north east,
+    above right=0.2cm and 0.95cm of Temp Check from Batt Check.north east,
     anchor=north west
 ]
 {
@@ -1400,13 +1402,13 @@ node[
 	        Calibrate
 		}\\
 		{} & \makecell{
-	        nC = n\,°C
+	        nC = n\,°C; 21\,°C\default{}
 		}\\
 		{2} & \makecell{
 		    Limit
 	    }\\
 	    {} & \makecell{
-	        nC = n + 30\,°C
+	        nC = n + 30\,°C; 45\,°C\default{}
 	    }
     \end{tabular}
 };
@@ -1448,7 +1450,7 @@ node[
 % Beacon Speed
 \node (Beacon Speed)[
     advancedconfig,
-    below right=0.68cm and 1cm of Beacon from Temp Check.east,
+    below right=0.68cm and 0.95cm of Beacon from Temp Check.east,
     anchor=west
 ]
 {
@@ -1668,26 +1670,26 @@ at (current page.north west)[
             \thead{\footnotesize Smooth Ramp}
         }\\
 		{1} & \makecell{
-		    Floor: nC = n of 150
+		    Floor: nC = n of 150; 10\default{}
 		}\\
 		{2} & \makecell{
-		    Ceiling: nC = 151 \char"2212{} n
+		    Ceiling: nC = 151 \char"2212{} n; 130\default{}
 		}\\
 		{3} & \makecell{
-		    Speed*: 1C (full speed)\\
+		    Speed*: 1C\default{} (full speed)\\
 		    to 4C (quarter speed)
 		}\\
 		\multicolumn{2}{l}{
             \thead{\footnotesize Stepped Ramp}
         }\\
 		{1} & \makecell{
-		    Floor: nC = n of 150
+		    Floor: nC = n of 150; 10\default{}
 		}\\
 		{2} & \makecell{
-		    Ceiling: nC = 151 \char"2212{} n
+		    Ceiling: nC = 151 \char"2212{} n; 130\default{}
 		}\\
 		{3} & \makecell{
-            Step count: 1\textendash{}150C
+            Step count: 1\textendash{}150C; 7\default{}
         }
     \end{tabular}
 };
@@ -1701,16 +1703,16 @@ at (current page.north west)[
     in=280,
     looseness=1.3
 ]
-+(-2.8,3.1) to[
++(-2.7,3.1) to[
     out=100,
     in=275,
     looseness=0.9
 ]
 node[
     advancedbutton,
-    pos=0.55
+    pos=0.45
 ] 
-{7H} +(-2.92,4.9) to[
+{7H} +(-2.82,4.9) to[
     out=95,
     in=320,
     looseness=0.9
@@ -1736,23 +1738,22 @@ node[
 	        1C = Enable
 	    }\\
 	    \multicolumn{2}{l}{
-            \thead{\firstlinetable{Channel mode}
-            \onelinetable{sequence}}
+            \thead{\onelinetable{Sequence}}
         }\\
  		{1} & \makecell{
-		    Channel 1
+		    Channel 1\default{}
 		}\\
 		{2} & \makecell{
-		    Channel 2
+		    Channel 2\default{}
 		}\\
 		{3} & \makecell{
-		    50/50
+		    50/50\default{}
 		}\\
 		{4} & \makecell{
-		    Tint Ramp
+		    Tint Ramp\default{}
 		}\\
 		{5} & \makecell{
-		    Auto-tint
+		    Auto-tint\default{}
 		}\\
 		{6+} & \makecell{
 		    Aux LED Channels
@@ -1785,7 +1786,7 @@ node[
             \thead{Ramp Extras Config}
         }\\
 	    {1} & \makecell{
-	        Disable manual memory*
+	        Disable manual memory*\default{}
 	    }\\
 	    {} & \makecell{
 	        1+C
@@ -1794,14 +1795,14 @@ node[
 	        Manual memory timer*
 	    }\\
 	    {} & \makecell{
-	        0C = Disable\\
+	        0C = Disable\default{}\\
 	        nC = n minutes
 	    }\\
 	    {3} & \makecell{
 	        Moon style (1H from Off)*
 	    }\\
 	    {} & \makecell{
-		    0C = Ramp up after moon\\
+		    0C = Ramp up after moon\default{}\\
 		    1C = Stay at floor level
 	    }\\
 	    {4} & \makecell{
@@ -1809,7 +1810,7 @@ node[
 	    }\\
 	    {} & \makecell{
 	        0C = Ceiling only, no turbo\\
-	        1C = Turbo\\
+	        1C = Turbo\default{}\\
 	        2C = Ceiling, or turbo if\\
 	        ramped up to ceiling first
 	    }\\
@@ -1818,14 +1819,14 @@ node[
 	    }\\
 	    {} & \makecell{
 	        0C = Disable\\
-	        1C = Enable
+	        1C = Enable\default{}
 	    }\\
 	    \multicolumn{2}{l}{
 	        \thead{\firstlinetable{Types of brightness memory}
 	        \onelinetable{(1C from Off)}}
 	    }\\
 	    \multicolumn{2}{l}{
-	        \makecell{Automatic: Last-ramped\\
+	        \makecell{Automatic: Last-ramped\default{}\\
 	        Manual: User's saved\\
 	        Hybrid: Manual after n minutes}
 	    }
@@ -1886,19 +1887,19 @@ node[
             Config}
         }\\
 		{1} & \makecell{
-		    Floor: nC = n of 150
+		    Floor: nC = n of 150; 10\default{}
 		}\\
 		{2} & \makecell{
-		    Ceiling: nC = 151 \char"2212{} n
+		    Ceiling: nC = 151 \char"2212{} n; 130\default{}
 		}\\
 		{3} & \makecell{
-            Step count: 1\textendash{}150C
+            Step count: 1\textendash{}150C; 5\default{}
         }\\
         {4} & \makecell{
 	        Simple UI's turbo style
 	    }\\
 	    {} & \makecell{
-	        0C = Ceiling only, no turbo\\
+	        0C = Ceiling only, no turbo\default{}\\
 	        1C = Turbo\\
 	        2C = Ceiling, or turbo if\\
 	        ramped up to ceiling first
@@ -1917,7 +1918,7 @@ node[
     advancedbutton,
     pos=0.9
 ]
-{10H} (Simple UI Ramp Config from OFF.302);
+{10H} (Simple UI Ramp Config from OFF.298);
 
 % Misc Config from OFF
 \node (Misc Config from OFF)[
@@ -1934,7 +1935,7 @@ node[
 	        Tint Ramp style
 		}\\
 		{} & \makecell{
-	        0C = Smooth ramp\\
+	        0C = Smooth ramp\default{}\\
 	        1C = Middle tint only\\
 	        2C = Channel toggle\\
 	        3+C = Stepped ramp\\
@@ -1944,13 +1945,8 @@ node[
 		    Jump Start level
 	    }\\
 	    {} & \makecell{
-		    1\textendash{}150C (usually\\
-		    between 20 and 50)
-	    }\\
-	    \multicolumn{2}{l}{
-            \thead{\firstlinetable{Hardware-specific; may not}
-            \onelinetable{be present on all lights}}
-        }
+		    1\textendash{}150C; 21\default{}
+	    }
     \end{tabular}
 };
 
@@ -1965,7 +1961,7 @@ node[
     advancedbutton,
     pos=0.85
 ]
-{9H} (Misc Config from OFF.250);
+{9H} (Misc Config from OFF.246);
 
 % Momentary Moon from Lockout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2054,7 +2050,7 @@ node[
     Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
     Cyan \char"2192{}\\
     Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
-    Disco \char"2192{} Rainbow \char"2192{} Voltage
+    Disco \char"2192{} Rainbow\default{} \char"2192{} Voltage
 };
 
 \draw (OFF right.north) edge[
@@ -2078,7 +2074,7 @@ node[
 ]
 {
     \firstline{OFF Aux LED Pattern}
-    Off \char"2192{} Low \char"2192{} High \char"2192{} Blinking
+    Off \char"2192{} Low\default{} \char"2192{} High \char"2192{} Blinking
 };
 
 \draw (OFF right.north) edge[
@@ -2105,7 +2101,7 @@ node[
     Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
     Cyan \char"2192{}\\
     Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
-    Disco \char"2192{} Rainbow \char"2192{} Voltage
+    Disco \char"2192{} Rainbow \char"2192{} Voltage\default{}
 };
 
 \draw (Lockout.north) edge[
@@ -2129,7 +2125,7 @@ node[
 ]
 {
     \firstline{Lockout Aux LED Pattern}
-    Off \char"2192{} Low \char"2192{} High \char"2192{} Blinking
+    Off \char"2192{} Low \char"2192{} High \char"2192{} Blinking\default{}
 };
 
 \draw (Lockout.north) edge[
@@ -2153,7 +2149,7 @@ node[
 ]
 {
     \firstline{Auto-lock*}
-    0C = Disable\\
+    0C = Disable\default{}\\
     nC = n minutes
 };
 
@@ -2288,24 +2284,9 @@ node[
     above=0.2cm of Simple UI switch from OFF right.north east,
     extendedsimpleUI,
     anchor=south east,
-    align=right,
-    % fill=white % only when in combination with Extended Simple UI description
+    align=right
 ]
 {\oneline{Extended Simple UI}};
-
-% Extended Simple UI description
-% \node (Extended Simple UI description)[
-    % above=0.05cm of Simple UI switch extra node Extended Simple UI.north east,
-    % anchor=south east,
-    % inner xsep=0.05cm,
-    % inner ysep=0cm,
-    % align=right
-% ]
-% {
-    % Some lights have additional\\
-    % features enabled in Simple UI,\\
-    % at the manufacturer's request.
-% };
 
 % Anduril 2 UI %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2320,7 +2301,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-05\\[2.0ex]
+    \normalsize Diagram Release 0135-06\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
@@ -2341,8 +2322,7 @@ at (current page.north east)[
     \voltagebox[green]{G-3.5,\vphantom{Ú}}%
     \voltagebox[cyan]{C-3.7,\vphantom{Ú}}%
     \voltagebox[blue]{B-3.9,\vphantom{Ú}}%
-    \voltageboxpurple{P-4.1V\vphantom{,Ú}}% \\[1.0ex]
-    % Single-color aux: Fast-blink 3.3\textendash{}2.9V
+    \voltageboxpurple{P-4.1V\vphantom{,Ú}}
 };
 
 % Button Presses
@@ -2529,6 +2509,20 @@ node[
 ]
 {\normalsize\textbf{*}};
 
+\node (Legend Default setting text)[
+    legendconfig,
+    below=0.1cm of Legend Inherited by Simple text.south west,
+    anchor=north west
+]
+{Default setting};
+
+\node (Legend Default setting picture)[
+    legendconfig,
+    left=0.22cm of Legend Default setting text.west,
+    anchor=east
+]
+{\normalsize\textbf{\default{}}};
+
 % Legend fit
 \begin{scope}[on background layer]
     \node (Strobe Modes fit)[
@@ -2548,6 +2542,8 @@ node[
         (Legend Momentary effect picture)
         (Legend Inherited by Simple text)
         (Legend Inherited by Simple picture)
+        (Legend Default setting text)
+        (Legend Default setting picture)
     ]
     {};
 \end{scope}
