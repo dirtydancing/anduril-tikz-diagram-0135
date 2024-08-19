@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-06 (Date: 2024-08-19)
+
+- Added default settings
+
 ## 2024-04-20.0135-05 (Date: 2024-08-12)
 
 - Adjusted Mode memory
