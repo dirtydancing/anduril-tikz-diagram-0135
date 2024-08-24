@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-08 (Date: 2024-08-24)
+
+- Re-adjusted Momentary Mode
+
 ## 2024-04-20.0135-07 (Date: 2024-08-23)
 
 - Adjusted Momentary Mode
