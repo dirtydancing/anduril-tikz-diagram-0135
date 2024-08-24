@@ -99,7 +99,6 @@
 \usetikzlibrary{fit} % for fitting a node
 \usetikzlibrary{backgrounds} % for background frames
 \usetikzlibrary {decorations.text} % for text along path
-\usetikzlibrary{patterns.meta} % for user-defined patterns
 
 \definecolor{cyan-1}{HTML}{3EFFEC}
 \definecolor{yellow-1}{HTML}{FFEC30}
@@ -891,31 +890,10 @@ node[
 % Momentary Mode from OFF ON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \node (Momentary Mode from OFF ON)[
-    preaction={
-        fill=gray!8
-    },
     advancedconfig,
-    draw=white,
-    line width=0pt,
-    solid,
-    outer sep=0.01cm,
     below left=1.2cm and 2.2cm of OFF.center,
     anchor=north,
-    align=left,
-    pattern={
-        Lines[
-            angle=45,
-            line width=5pt,
-            distance=18pt,
-            xshift=-1.5pt
-        ]
-    },
-    pattern color=orange-1!30,
-    postaction={
-        draw=black,
-        thin,
-        densely dotted
-    }
+    align=left
 ]
 {
     \firstline{Momentary Mode}
@@ -2323,7 +2301,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-07\\[2.0ex]
+    \normalsize Diagram Release 0135-08\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
