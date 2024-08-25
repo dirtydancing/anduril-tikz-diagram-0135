@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-09 (Date: 2024-08-25)
+
+- Clarified default settings
+
 ## 2024-04-20.0135-08 (Date: 2024-08-24)
 
 - Re-adjusted Momentary Mode
