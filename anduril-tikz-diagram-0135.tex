@@ -933,7 +933,7 @@ node[
 at (current page.south west)[ 
     extendedsimpleconfig-mode,
     xshift=1.3cm,
-    yshift=5.15cm,
+    yshift=5.5cm,
     anchor=south west
 ]
 {\oneline{Lightning Storm}};
@@ -944,7 +944,10 @@ at (current page.south west)[
     below=0.8cm of Lightning Storm from Police Strobe.south,
     anchor=north
 ]
-{\oneline{Police Strobe}};
+{
+    \firstline{Police Strobe}
+    Channels 1 and 2 % Red and blue aux
+};
 
 \draw (Police Strobe from Tactical Strobe.north) edge[
     ->,
@@ -1025,7 +1028,7 @@ node[
 % Candle Timer
 \node (Candle Timer)[
     extendedsimpleconfig,
-    above left=0.5cm and 1cm of Candle from OFF.west,
+    above left=0.47cm and 1cm of Candle from OFF.west,
     anchor=east
 ]
 {
@@ -1073,11 +1076,11 @@ node[
     extendedsimpleline-mode,
     out=180,
     in=0,
-    looseness=0.8
+    looseness=0.7
 ]
 node[
     extendedsimplebutton-mode,
-    pos=0.35
+    pos=0.4
 ]
 {2C} (Party Strobe from Bike Flasher.east);
 
@@ -1135,7 +1138,7 @@ at (current page.south)[
     extendedsimpleline,
     out=270,
     in=0,
-    looseness=1.3,
+    looseness=1.4,
     postaction={
         decoration={
             text along path,
@@ -1151,7 +1154,7 @@ node[
     extendedsimplebutton,
     pos=0.55
 ]
-{3H} (Strobe Modes fit.43);
+{3H} (Strobe Modes fit.45);
 \draw (Strobe Modes fit.60) edge[
     ->,
     extendedsimpleline,
@@ -1161,7 +1164,7 @@ node[
 ]
 node[
     extendedsimplebutton,
-    pos=0.35,
+    pos=0.25,
     label={
         [align=left, xshift=-0.05cm, yshift=-0.025cm]right:{
             \begin{tabular}{l}
@@ -1540,7 +1543,7 @@ at (current page.west)[
     anyconfig,
     anchor=south west,
     xshift=1cm,
-    yshift=0.15cm
+    yshift=0.4cm
 ]
 {\oneline{Next Channel Mode}};
 
@@ -1561,9 +1564,8 @@ node[
 \node (Tint Ramp from ON)
 at (current page.west)[
     anyconfig,
-    anchor=north west,
-    xshift=1cm,
-    yshift=-0.15cm
+    below=0.3cm of Next Channel Mode from ON.south west,
+    anchor=north west
 ]
 {
     \firstline{Tint Ramp}
@@ -1603,7 +1605,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.69
+    pos=0.67
 ]
 {3H} (Momentary Turbo 3H from ON.east);
 
@@ -1624,7 +1626,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.74
+    pos=0.733
 ]
 {4H} (Momentary Turbo 4H from ON.east);
 
@@ -2301,7 +2303,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-09\\[2.0ex]
+    \normalsize Diagram Release 0135-10\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
