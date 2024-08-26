@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-10 (Date: 2024-08-26)
+
+- Added Police Strobe channels
+
 ## 2024-04-20.0135-09 (Date: 2024-08-25)
 
 - Clarified default settings
