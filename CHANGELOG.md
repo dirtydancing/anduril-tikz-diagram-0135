@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-11 (Date: 2024-08-31)
+
+- Adjusted Simple UI Ramp Config
+
 ## 2024-04-20.0135-10 (Date: 2024-08-26)
 
 - Added Police Strobe channels
