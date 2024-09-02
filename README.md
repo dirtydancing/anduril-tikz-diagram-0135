@@ -20,4 +20,4 @@ The corresponding two commands are:
 
 `lualatex anduril-tikz-diagram-0135.tex`
 
-`pdfcrop --margins 5 anduril-tikz-diagram-0135.pdf && pdftoppm -png -r 300 anduril-tikz-diagram-0135-crop.pdf anduril-tikz-diagram-0135`
+`pdfcrop --margins 3 anduril-tikz-diagram-0135.pdf && pdftoppm -png -r 300 anduril-tikz-diagram-0135-crop.pdf anduril-tikz-diagram-0135`
