@@ -2,6 +2,11 @@
 
 ## Next
 
+## 2024-04-20.0135-13 (Date: 2024-09-02)
+
+- Slightly rounded corners of ramp image
+- Changed margins for PNG from 5 to 3
+
 ## 2024-04-20.0135-12 (Date: 2024-09-01)
 
 - Adjusted stepped ramp to 7 lines
