@@ -391,7 +391,7 @@
 % Blinky / Utility Modes from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Next Channel Mode from ON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Ramp Config from ON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Simple UI Ramp Config from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple UI Config from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Momentary Moon from Lockout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Aux LED Color from OFF right %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Factory Reset from OFF right %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1871,9 +1871,9 @@ node[
 ]
 {10C} (Manual Memory from ON.222);
 
-% Simple UI Ramp Config from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Simple UI Config from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\node (Simple UI Ramp Config from OFF)[
+\node (Simple UI Config from OFF)[
     advancedtable,
     right=0.8cm of Ramp Extras Config from ON.north east,
     anchor=north west
@@ -1881,7 +1881,7 @@ node[
 {
     \begin{tabular}{m{0.35cm} l}
         \multicolumn{2}{l}{
-            \thead{Simple UI Ramp Config}
+            \thead{Simple UI Config}
         }\\
 		{1} & \makecell{
 		    Floor: nC = n of 150; 10\default{}
@@ -1915,12 +1915,12 @@ node[
     advancedbutton,
     pos=0.9
 ]
-{10H} (Simple UI Ramp Config from OFF.300);
+{10H} (Simple UI Config from OFF.300);
 
 % Misc Config from OFF
 \node (Misc Config from OFF)[
     advancedtable,
-    right=0.8cm of Simple UI Ramp Config from OFF.north east,
+    right=0.8cm of Simple UI Config from OFF.north east,
     anchor=north west
 ]
 {
@@ -2038,7 +2038,7 @@ node[
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \node (Aux LED Color from OFF right)[
     extendedsimpleconfig,
-    above right=0.9cm and 3.2cm of Lockout.center,
+    above right=1cm and 3.2cm of Lockout.center,
     anchor=south,
     align=left
 ]
@@ -2141,7 +2141,7 @@ node[
 % Auto-lock Config from Lockout
 \node (Auto-lock Config from Lockout)[ 
     advancedconfig,
-    left=1.8cm of Aux LED Pattern from Lockout.north west,
+    left=1.5cm of Aux LED Pattern from Lockout.north west,
     anchor=north east
 ]
 {
@@ -2155,13 +2155,38 @@ node[
     advancedline,
     out=90,
     in=300,
-    looseness=0.7
+    looseness=0.5
 ]
 node[
     advancedbutton,
     pos=0.8
 ]
 {10H} (Auto-lock Config from Lockout.south);
+
+% Channel Mode Config from Lockout
+\node (Channel Mode Config from Lockout)[
+    advancedconfig,
+    left=0.4cm of Auto-lock Config from Lockout.north west,
+    anchor=north east
+]
+{
+    \oneline{Channel Mode}\\[0.75ex]
+    \firstline{Config*}
+    See 9H from On
+};
+
+\draw (Lockout.north) edge[
+    ->,
+    advancedline,
+    out=90,
+    in=325,
+    looseness=0.9
+]
+node[
+    advancedbutton,
+    pos=0.85
+]
+{9H} (Channel Mode Config from Lockout.325);
 
 % Factory Reset from OFF right %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2298,7 +2323,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-13\\[2.0ex]
+    \normalsize Diagram Release 0135-14\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
