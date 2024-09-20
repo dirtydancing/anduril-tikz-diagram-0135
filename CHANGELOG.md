@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-16 (Date: 2024-09-20)
+
+- Emphasized UI switch lines
+
 ## 2024-04-20.0135-15 (Date: 2024-09-18)
 
 - Added 9H from any mode to 9H from On
