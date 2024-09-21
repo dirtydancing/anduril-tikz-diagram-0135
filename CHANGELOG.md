@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-17 (Date: 2024-09-21)
+
+- Readjusted UI switch lines
+
 ## 2024-04-20.0135-16 (Date: 2024-09-20)
 
 - Emphasized UI switch lines
