@@ -1175,7 +1175,7 @@ node[
 
 % Tactical Mode Config
 \node (Tactical Mode Config)
-at (current page.south)[ 
+at (current page.south)[
     advancedtable,
     xshift=-6.95cm,
     yshift=1cm,
@@ -1189,7 +1189,7 @@ at (current page.south)[
         {1\textendash{}3} & \makecell{
             Tactical Slots 1\textendash{}3
         }\\
-         {} & \makecell{
+        {} & \makecell{
             0C = Last-used strobe /\\
             mood mode\\
             1\textendash{}150C = Brightness\\
@@ -1202,7 +1202,7 @@ at (current page.south)[
 };
 
 % Tactical Mode from OFF
-\node (Tactical Mode from OFF)[ 
+\node (Tactical Mode from OFF)[
     advancedconfig,
     above=0.8cm of Tactical Mode Config.north,
     anchor=south
@@ -1735,7 +1735,7 @@ node[
         \multicolumn{2}{l}{
             \thead{\onelinetable{Sequence}}
         }\\
-         {1} & \makecell{
+        {1} & \makecell{
             Channel 1\default{}
         }\\
         {2} & \makecell{
@@ -2066,7 +2066,7 @@ node[
 {7H} (Aux LED Color from OFF right.east);
 
 % Aux LED Pattern from OFF right
-\node (Aux LED Pattern from OFF right)[ 
+\node (Aux LED Pattern from OFF right)[
     extendedsimpleconfig,
     above=0.3cm of Aux LED Color from OFF right.north west,
     anchor=south west
@@ -2090,7 +2090,7 @@ node[
 {7C} (Aux LED Pattern from OFF right.east);
 
 % Aux LED Color from Lockout
-\node (Aux LED Color from Lockout)[ 
+\node (Aux LED Color from Lockout)[
     extendedsimpleconfig,
     above=0.3cm of Aux LED Pattern from OFF right.north west,
     anchor=south west
@@ -2117,7 +2117,7 @@ node[
 {7H} (Aux LED Color from Lockout.west);
 
 % Aux LED Pattern from Lockout
-\node (Aux LED Pattern from Lockout)[ 
+\node (Aux LED Pattern from Lockout)[
     extendedsimpleconfig,
     above=0.3cm of Aux LED Color from Lockout.north west,
     anchor=south west
@@ -2141,7 +2141,7 @@ node[
 {7C} (Aux LED Pattern from Lockout.west);
 
 % Auto-lock Config from Lockout
-\node (Auto-lock Config from Lockout)[ 
+\node (Auto-lock Config from Lockout)[
     advancedconfig,
     left=1.8cm of Aux LED Pattern from Lockout.north west,
     anchor=north east
@@ -2532,7 +2532,7 @@ node[
     \node (Strobe Modes fit)[
         legendfit,
         yshift=-0.2pt, % 1/2 line thickness for outer alignment
-        fit=(Legend basic use text) 
+        fit=(Legend basic use text)
         (Legend basic use picture)
         (Legend Simple and Advanced text)
         (Legend Simple and Advanced picture)
