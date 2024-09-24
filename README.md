@@ -5,16 +5,21 @@
 ## Download
 
 Check the
-[Releases](https://github.com/dirtydancing/anduril-tikz-diagram-0135/releases).
+[Release](https://github.com/dirtydancing/anduril-tikz-diagram-0135/releases)
+(for Andúril 2 release 2024-04-20 only).
 
 For recent changes, check the [Changelog](CHANGELOG.md).
 
 ## Further Information
 
-This diagram is specifically for model number 0135, `hank-emisar-2ch`.
+This is an exemplary model-specific diagram for
+[model number](https://github.com/ToyKeeper/anduril/blob/trunk/MODELS)
+0135, `hank-emisar-2ch`, including Extended Simple UI features, Andúril 1 turbo
+style, and the model-specific default settings.
 
-For all further details, see the generic
-[Diagram for the Andúril 2 UI](https://github.com/dirtydancing/anduril-tikz-diagram).
+I am focusing on the
+[generic diagram](https://github.com/dirtydancing/anduril-tikz-diagram);
+further details are available over there.
 
 The corresponding two commands are:
 
