@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-18 (Date: 2024-10-16)
+
+- Colored borders around UI switches
+
 ## 2024-04-20.0135-17 (Date: 2024-09-21)
 
 - Readjusted UI switch lines
