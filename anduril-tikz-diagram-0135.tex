@@ -104,6 +104,7 @@
 \definecolor{yellow-1}{HTML}{FFEC30}
 \definecolor{orange-1}{HTML}{FFA40F}
 \definecolor{blue-1}{HTML}{0F5BE0}
+\definecolor{magenta-1}{HTML}{EC309F}
 
 \tikzset{
     >={
@@ -247,6 +248,9 @@
     },
     advancedUI/.style={
         advancedconfig,
+        draw=magenta-1!90,
+        very thick, % very thick = 1.2pt
+        solid,
         font=\bfseries\LARGE
     }
 }
@@ -277,6 +281,9 @@
     },
     simpleUI/.style={
         anyconfig,
+        draw=magenta-1!90,
+        very thick,
+        solid,
         font=\bfseries\LARGE
     }
 }
@@ -298,7 +305,10 @@
         inner sep=0.3cm
     },
     extendedsimpleUI/.style={
-        extendedsimpleconfig
+        extendedsimpleconfig,
+        draw=magenta-1!90,
+        very thick,
+        solid
     }
 }
 \tikzset{
@@ -2301,7 +2311,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-17\\[2.0ex]
+    \normalsize Diagram Release 0135-18\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
