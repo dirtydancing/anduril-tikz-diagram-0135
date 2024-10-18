@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-19 (Date: 2024-10-18)
+
+- Added default to Extended Simple UI
+
 ## 2024-04-20.0135-18 (Date: 2024-10-16)
 
 - Colored borders around UI switches
