@@ -2,6 +2,11 @@
 
 ## Next
 
+## 2024-04-20.0135-20 (Date: 2024-10-21)
+
+- Added support for inherited
+- Adjusted UI switch color
+
 ## 2024-04-20.0135-19 (Date: 2024-10-18)
 
 - Added default to Extended Simple UI
