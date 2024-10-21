@@ -374,6 +374,7 @@
 \newcommand{\onelinetable}[1]{\mdseries\footnotesize{#1}}
 \newcommand{\firstlinetable}[1]{\onelinetable{#1}\\[-0.55ex]}
 
+\newcommand{\inherited}{\char"002A}
 \newcommand{\default}{\char"25C1}
 
 \begin{document}
@@ -1273,7 +1274,7 @@ at (current page.south)[
     anchor=south west
 ]
 {
-    \firstline{Next Channel Mode*}
+    \firstline{Next Channel Mode\inherited{}}
     For number blinks only
 };
 
@@ -1338,7 +1339,7 @@ node[
 {
     \begin{tabular}{m{0.35cm} l}
         \multicolumn{2}{l}{
-            \thead{Voltage Config*}
+            \thead{Voltage Config\inherited{}}
         }\\
         {1} & \makecell{
             Correction Factor
@@ -1402,7 +1403,7 @@ node[
 {
     \begin{tabular}{m{0.35cm} l}
         \multicolumn{2}{l}{
-            \thead{Thermal Config*}
+            \thead{Thermal Config\inherited{}}
         }\\
         {1} & \makecell{
             Calibrate
@@ -1680,7 +1681,7 @@ at (current page.north west)[
             Ceiling: nC = 151 \char"2212{} n; 130\default{}
         }\\
         {3} & \makecell{
-            Speed*: 1C\default{} (full speed)\\
+            Speed\inherited{}: 1C\default{} (full speed)\\
             to 4C (quarter speed)
         }\\
         \multicolumn{2}{l}{
@@ -1732,7 +1733,7 @@ node[
     \begin{tabular}{m{0.35cm} l}
         \multicolumn{2}{l}{
             \thead{Channel Mode\\
-            Config*}
+            Config\inherited{}}
         }\\
         {n} & \makecell{
             n\textsuperscript{th} channel mode
@@ -1798,20 +1799,20 @@ node[
             \thead{Ramp Extras Config}
         }\\
         {1} & \makecell{
-            Disable manual memory*\default{}
+            Disable manual memory\inherited{}\default{}
         }\\
         {} & \makecell{
             1+C
         }\\
         {2} & \makecell{
-            Manual memory timer*
+            Manual memory timer\inherited{}
         }\\
         {} & \makecell{
             0C = Disable\default{}\\
             nC = n minutes
         }\\
         {3} & \makecell{
-            Moon style (1H from Off)*
+            Moon style (1H from Off)\inherited{}
         }\\
         {} & \makecell{
             0C = Ramp up after moon\default{}\\
@@ -1827,7 +1828,7 @@ node[
             ramped up to ceiling first
         }\\
         {5} & \makecell{
-            Smooth Steps*
+            Smooth Steps\inherited{}
         }\\
         {} & \makecell{
             0C = Disable\\
@@ -1865,7 +1866,7 @@ node[
     anchor=south west
 ]
 {
-    \firstline{Manual Memory*}
+    \firstline{Manual Memory\inherited{}}
     Activate, and save\\
     current brightness and\\
     current channel mode
@@ -1939,7 +1940,7 @@ node[
 {
     \begin{tabular}{m{0.35cm} l}
         \multicolumn{2}{l}{
-            \thead{Misc Config*}
+            \thead{Misc Config\inherited{}}
         }\\
         {1} & \makecell{
             Tint Ramp style
@@ -2156,7 +2157,7 @@ node[
     anchor=north east
 ]
 {
-    \firstline{Auto-lock*}
+    \firstline{Auto-lock\inherited{}}
     0C = Disable\default{}\\
     nC = n minutes
 };
@@ -2310,7 +2311,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-19\\[2.0ex]
+    \normalsize Diagram Release 0135-20\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
@@ -2516,7 +2517,7 @@ node[
     left=0.22cm of Legend Inherited by Simple text.west,
     anchor=east
 ]
-{\normalsize\textbf{*}};
+{\normalsize\textbf{\inherited{}}};
 
 \node (Legend Default setting text)[
     legendconfig,
