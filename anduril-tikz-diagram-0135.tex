@@ -331,7 +331,7 @@
         fill=white,
         text=black,
         font=\bfseries\normalsize,
-        inner xsep=0.325cm,
+        inner xsep=0.375cm,
         inner ysep=0.065cm,
         rounded rectangle
     },
@@ -490,12 +490,21 @@ at (current page.center)[
 ]
 {};
 
-\node (Ramp Memory) at (Ramp.center) {\oneline{Memory}};
-\node (Ramp Ceiling) at (Ramp.north)[below, yshift=-3.2pt]
-% -3.2pt for Ramp inside 1
+\node (ON Ramp) at (Ramp.center)[
+    onoff,
+    inner xsep=0.23cm
+]
+{ON};
+\node (Ramp Memory) at (ON Ramp.south)[below]{\oneline{Memory}};
+\node (Ramp Ceiling) at (Ramp.north)[
+    below,
+    yshift=-3.2pt % -3.2pt for Ramp inside 1
+]
 {\oneline{Ceiling}};
-\node (Ramp Floor) at (Ramp.south)[above, yshift=3.2pt]
-% +3.2pt for Ramp inside 1
+\node (Ramp Floor) at (Ramp.south)[
+    above,
+    yshift=3.2pt % +3.2pt for Ramp inside 1
+]
 {\oneline{Floor}};
 \node (Ramp Style Smooth)[
     below right=0.05cm and 0.36cm of Ramp.south west,
@@ -516,7 +525,7 @@ at (current page.center)[
 ]
 {};
 
-\draw (Ramp Memory.north) edge[
+\draw (ON Ramp.north) edge[
     arrows={<[open, fill=white]->},
     anyline basic use,
     cap=round
@@ -882,7 +891,7 @@ node[
 
 \node (OFF right extra node ON)[
     on-extra,
-    below left=0.8cm and 1.2cm of OFF right.west,
+    below left=0.8cm and 1.1cm of OFF right.west,
     anchor=center
 ]
 {ON};
@@ -1616,7 +1625,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.67
+    pos=0.675
 ]
 {3H} (Momentary Turbo 3H from ON.east);
 
@@ -1637,7 +1646,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.733
+    pos=0.738
 ]
 {4H} (Momentary Turbo 4H from ON.east);
 
@@ -1827,7 +1836,7 @@ node[
         }\\
         {4} & \makecell{
             Advanced UI's turbo style\\
-            (2C from Ramp/On)
+            (2C from On/Ramp)
         }\\
         {} & \makecell{
             0C = Ceiling only, no turbo\\
@@ -1916,7 +1925,7 @@ node[
         }\\
         {4} & \makecell{
             Simple UI's turbo style\\
-            (2C from Ramp/On)
+            (2C from On/Ramp)
         }\\
         {} & \makecell{
             0C = Ceiling only, no turbo\default{}\\
@@ -2320,7 +2329,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-21\\[2.0ex]
+    \normalsize Diagram Release 0135-22\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
