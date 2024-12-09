@@ -2,6 +2,12 @@
 
 ## Next
 
+## 2024-04-20.0135-24 (Date: 2024-12-09)
+
+- Added defaults to tactical slots
+- Added default to 3C from batt check
+- Added default channel mode to strobes
+
 ## 2024-04-20.0135-23 (Date: 2024-12-04)
 
 - Added colors to post-off voltage display
