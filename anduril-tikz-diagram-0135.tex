@@ -618,20 +618,20 @@ node[
 % Toggle Ramp Style from ON
 \node (Toggle Ramp Style from ON)[
     extendedsimpleconfig,
-    below=0.8cm of Ramp.south,
+    below=0.75cm of Ramp.south,
     anchor=north,
     align=center
 ]
 {\oneline{Toggle Ramp Style}};
 \node (Toggle Ramp Style extra node ON)[
     on-extra,
-    below=0.8cm of Toggle Ramp Style from ON.west,
+    below right=0.75cm and 0.1cm of Toggle Ramp Style from ON.west,
     anchor=center
 ]
 {ON};
 \node (Toggle Ramp Style extra node 6C)[
     extendedsimplebutton,
-    below=0.8cm of Toggle Ramp Style from ON.center,
+    below=0.75cm of Toggle Ramp Style from ON.center,
     anchor=center,
     label={
         [align=left, xshift=-0.05cm, yshift=-0.025cm]right:{
@@ -1311,7 +1311,9 @@ at (current page.south)[
 ]
 {
     \firstline{Next Channel Mode\inherited{}}
-    For number blinks only
+    For number blinks only;\\
+    Tint Ramp\default{}
+    
 };
 
 % Batt Check from OFF
@@ -1362,7 +1364,7 @@ node[
 ]
 node[
     anybutton,
-    pos=0.45
+    pos=0.48
 ]
 {3C} (Batt Check from OFF.172);
 
