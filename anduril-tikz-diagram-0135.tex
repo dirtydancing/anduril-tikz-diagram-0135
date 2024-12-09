@@ -1223,7 +1223,7 @@ node[
 \node (Tactical Mode Config)
 at (current page.south)[
     advancedtable,
-    xshift=-6.95cm,
+    xshift=-6.75cm,
     yshift=1cm,
     anchor=south west
 ]
@@ -1255,9 +1255,9 @@ at (current page.south)[
 ]
 {
     \firstline{Tactical Mode}
-    1H = Tactical Slot 1 (high)\\
-    2H = Tactical Slot 2 (low)\\
-    3H = Tactical Slot 3 (strobe)
+    1H = Tactical Slot 1 (high); 130\default{}\\
+    2H = Tactical Slot 2 (low); 30\default{}\\
+    3H = Tactical Slot 3 (strobe); Police\default{}
 };
 
 \draw (Tactical Mode from OFF.south) edge[
@@ -1283,7 +1283,7 @@ node[
     advancedbutton,
     pos=0.8
 ]
-{6C} (Tactical Mode from OFF.45);
+{6C} (Tactical Mode from OFF.55);
 
 % Tactical Mode extra node Aux LED
 \node (Tactical Mode extra node Aux LED)[
@@ -1371,7 +1371,7 @@ node[
 % Voltage Config from Batt Check
 \node (Voltage Config from Batt Check)[
     advancedtable,
-    above right=0.4cm and 1.7cm of Tactical Mode Config.south east,
+    above right=0.4cm and 1.5cm of Tactical Mode Config.south east,
     anchor=south west
 ]
 {
@@ -2351,7 +2351,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-23\\[2.0ex]
+    \normalsize Diagram Release 0135-24\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
