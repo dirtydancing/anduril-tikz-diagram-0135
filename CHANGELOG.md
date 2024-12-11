@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-25 (Date: 2024-12-11)
+
+- Adjusted colors for post-off voltage display
+
 ## 2024-04-20.0135-24 (Date: 2024-12-09)
 
 - Added defaults to tactical slots
