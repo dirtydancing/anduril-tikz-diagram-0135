@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-26 (Date: 2024-12-16)
+
+- Unified background design for voltage
+
 ## 2024-04-20.0135-25 (Date: 2024-12-11)
 
 - Adjusted colors for post-off voltage display
