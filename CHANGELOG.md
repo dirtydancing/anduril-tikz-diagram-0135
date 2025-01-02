@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-27 (Date: 2025-01-02)
+
+- Changed dotted borders to solid borders
+
 ## 2024-04-20.0135-26 (Date: 2024-12-16)
 
 - Unified background design for voltage
