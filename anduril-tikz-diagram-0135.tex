@@ -363,7 +363,7 @@
         rectangle,
         draw=none,
         minimum width=0.808cm,
-        minimum height=0.275cm,
+        minimum height=0.281cm,
         inner sep=0cm,
         outer sep=0cm,
         sharp corners,
@@ -371,6 +371,28 @@
     },
     legendfit/.style={
         generalconfig
+    }
+}
+\tikzset{
+    anyline basic use legend/.style={
+        anyline basic use,
+        line cap=round
+    },
+    anyline legend/.style={
+        anyline,
+        line cap=round
+    },
+    simpleline legend/.style={
+        simpleline,
+        line cap=round
+    },
+    advancedline legend/.style={
+        advancedline,
+        line cap=round
+    },
+    anyline momentary legend/.style={
+        anyline momentary,
+        line cap=round
     }
 }
 
@@ -2366,7 +2388,7 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-27\\[2.0ex]
+    \normalsize Diagram Release 0135-28\\[2.0ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
     anduril-tikz-diagram-0135\\[1.0ex]
@@ -2428,10 +2450,9 @@ at (current page.north east)[
 
 \draw (Legend basic use picture.west) edge[
     -,
-    anyline basic use,
+    anyline basic use legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 node[
     anybutton basic use,
@@ -2455,10 +2476,9 @@ node[
 
 \draw (Legend Simple and Advanced picture.west) edge[
     -,
-    anyline,
+    anyline legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 node[
     anybutton,
@@ -2482,10 +2502,9 @@ node[
 
 \draw (Legend Simple only picture.west) edge[
     -,
-    simpleline,
+    simpleline legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 node[
     simplebutton,
@@ -2509,10 +2528,9 @@ node[
 
 \draw (Legend Advanced only picture.west) edge[
     -,
-    advancedline,
+    advancedline legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 node[
     advancedbutton,
@@ -2536,10 +2554,9 @@ node[
 
 \draw (Legend Continuous effect picture.west) edge[
     -,
-    anyline,
+    anyline legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 (Legend Continuous effect picture.east);
 
@@ -2559,10 +2576,9 @@ node[
 
 \draw (Legend Momentary effect picture.west) edge[
     -,
-    anyline momentary,
+    anyline momentary legend,
     out=0,
-    in=180,
-    line cap=round
+    in=180
 ]
 (Legend Momentary effect picture.east);
 
