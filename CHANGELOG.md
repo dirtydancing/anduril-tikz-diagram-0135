@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-28 (Date: 2025-01-03)
+
+- Adjusted layout of legend
+
 ## 2024-04-20.0135-27 (Date: 2025-01-02)
 
 - Changed dotted borders to solid borders
