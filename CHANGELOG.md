@@ -2,6 +2,11 @@
 
 ## Next
 
+## 2024-04-20.0135-30 (Date: 2025-01-16)
+
+- Changed layout of Actions to config layout
+- Adjusted colors for borders and backgrounds
+
 ## 2024-04-20.0135-29 (Date: 2025-01-06)
 
 - Adjusted layout of Toggle Ramp Style
