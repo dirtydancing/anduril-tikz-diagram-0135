@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-31 (Date: 2025-01-17)
+
+- Repositioned Actions in strobe group
+
 ## 2024-04-20.0135-30 (Date: 2025-01-16)
 
 - Changed layout of Actions to config layout
