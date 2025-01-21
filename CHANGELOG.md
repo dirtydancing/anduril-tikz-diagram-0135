@@ -2,6 +2,12 @@
 
 ## Next
 
+## 2024-04-20.0135-32 (Date: 2025-01-21)
+
+- Emphasized UI voltage display
+- Emphasized Momentary Mode exit
+- Emphasized strobe group and blinky group
+
 ## 2024-04-20.0135-31 (Date: 2025-01-17)
 
 - Repositioned Actions in strobe group
