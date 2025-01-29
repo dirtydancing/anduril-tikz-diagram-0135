@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-33 (Date: 2025-01-29)
+
+- Added thermal regulation information
+
 ## 2024-04-20.0135-32 (Date: 2025-01-21)
 
 - Emphasized UI voltage display
