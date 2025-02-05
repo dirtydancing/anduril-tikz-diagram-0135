@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-34 (Date: 2025-02-05)
+
+- Added max to Channel Mode Config
+
 ## 2024-04-20.0135-33 (Date: 2025-01-29)
 
 - Added thermal regulation information
