@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-35 (Date: 2025-02-06)
+
+- Added auto-tint to 3H from On
+
 ## 2024-04-20.0135-34 (Date: 2025-02-05)
 
 - Added max to Channel Mode Config
