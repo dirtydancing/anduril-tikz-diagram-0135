@@ -2,6 +2,12 @@
 
 ## Next
 
+## 2024-04-20.0135-37 (Date: 2025-02-17)
+
+- Rearranged Tactical Mode Config
+- Removed 1H action for Lightning
+- Removed support for Anduril 2 turbo style
+
 ## 2024-04-20.0135-36 (Date: 2025-02-08)
 
 - Adjusted tint ramping and auto-tint
