@@ -1037,7 +1037,7 @@ node[
 % Candle from OFF
 \node (Candle from OFF)[
     extendedsimpleconfig-mode,
-    above right=0.65cm and 1.2cm of Lightning Storm from Police Strobe.east,
+    above right=0.45cm and 1.2cm of Lightning Storm from Police Strobe.east,
     anchor=west
 ]
 {\oneline{Candle\default{}}};
@@ -1058,7 +1058,7 @@ node[
 % Candle Timer
 \node (Candle Timer)[
     extendedsimpleconfig,
-    above left=0.47cm and 1cm of Candle from OFF.west,
+    above left=0.67cm and 1cm of Candle from OFF.west,
     anchor=east
 ]
 {
@@ -1110,7 +1110,7 @@ node[
 ]
 node[
     extendedsimplebutton-mode,
-    pos=0.53
+    pos=0.51
 ]
 {2C} (Party Strobe from Bike Flasher.east);
 
@@ -1124,18 +1124,15 @@ at (current page.south)[
 ]
 {
     \firstline{Actions}
-    1C = Off\\
     1H/2H = Brighter/dimmer\\
     (Candle and Bike)\\
     1H/2H = Faster/slower\\
     (Party and Tactical)\\
-    1H = Interrupt or new flash\\
-    (Lightning)\\
     3C = Next channel mode\\
     (except Police),\\
     saved per strobe mode;\\
     Channel 1\default{}\\
-    4C = Previous strobe mode
+    4C = Previous strobe mode\vphantom{y}
 };
 
 % Strobe Modes fit
@@ -1158,9 +1155,13 @@ at (current page.south)[
         below=0cm of Strobe Modes fit.north east,
         anchor=north east,
         inner xsep=0.15cm,
-        inner ysep=0.1cm
+        inner ysep=0.1cm,
+        align=right
     ]
-    {\normalsize\textbf{Strobe / Mood Modes}};
+    {
+        \normalsize\textbf{Strobe / Mood Modes}\\[1.0ex]
+        1C = Off
+    };
 \end{scope}
 
 \draw (OFF.south) edge[
@@ -1914,7 +1915,7 @@ node[
     \firstline{Manual Memory\inherited{}}
     Activate, and save\\
     current brightness and\\
-    current channel mode
+    current channel mode\vphantom{y}
 };
 
 \draw (ON.north) edge[
