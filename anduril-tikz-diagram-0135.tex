@@ -9,33 +9,42 @@
     a4paper,
     landscape
 ]
-{geometry}
+{geometry} % for document dimensions
 
 % \PassOptionsToPackage{gray}{xcolor} % for grayscale output
 
-% \usepackage[dvipsnames]{xcolor} % for additional color names
+\usepackage{xcolor} % for access to colors
+% xcolor package is also loaded by tikz package
 
-\usepackage{fontspec}
+\definecolor{blue-1}{HTML}{0F5BE0}
+\definecolor{cyan-1}{HTML}{3EFFEC}
+\definecolor{yellow-1}{HTML}{FFEC30}
+\definecolor{orange-1}{HTML}{FFA40F}
+
+\usepackage{fontspec} % for loading OpenType fonts
 \setmainfont{Source Sans 3}
 
-\usepackage{setspace}
+\usepackage{setspace} % for setting the line spacing
 \setstretch{0.9}
 
 \usepackage{array} % for table fixed width
+% array package is also loaded by makecell package
 
 \usepackage{makecell} % for line breaks within table cells
+
 \renewcommand\cellalign{tl}
 % for makecell package: vertical top, horizontal left for cells
 \renewcommand\cellgape{\Gape[0.35ex]}
 % for makecell package: vertical spaces around cells
 \renewcommand\theadalign{tl}
 % for makecell package: vertical top, horizontal left for column heads
-\renewcommand\theadgape{\Gape[0.65ex]}
+\renewcommand\theadgape{\Gape[0.5ex]}
 % for makecell package: vertical spaces around column heads
 \renewcommand\theadfont{\bfseries\normalsize}
 % for makecell package: default font size for column heads
 
-\setlength{\tabcolsep}{0pt} % default: 6pt
+\setlength{\tabcolsep}{0pt} % for setting the table column spacing
+% default: 6pt
 
 \usepackage{tcolorbox} % for colored and framed text boxes
 
@@ -96,7 +105,8 @@
     arc=0.175cm
 }
 
-\usepackage{tikz}
+\usepackage{tikz} % for creating graphics
+
 \usetikzlibrary{arrows.meta} % for Stealth arrow tip
 \usetikzlibrary{bending} % for flexing and bending arrows
 % with bending library, default: flex
@@ -105,12 +115,9 @@
 \usetikzlibrary{shapes.misc} % for rounded rectangle
 \usetikzlibrary{fit} % for fitting a node
 \usetikzlibrary{backgrounds} % for background frames
+% backgrounds library is also loaded by tikz-layers package
 \usetikzlibrary{decorations.text} % for text along path
-
-\definecolor{cyan-1}{HTML}{3EFFEC}
-\definecolor{yellow-1}{HTML}{FFEC30}
-\definecolor{orange-1}{HTML}{FFA40F}
-\definecolor{blue-1}{HTML}{0F5BE0}
+\usetikzlibrary{matrix} % for matrix of nodes
 
 \tikzset{
     >={
@@ -211,6 +218,7 @@
         thin,
         solid,
         fill=yellow-1!40,
+        text=black,
         inner sep=0.1cm,
         rounded corners,
         align=left
@@ -233,7 +241,7 @@
     advancedline/.style={
         anyline
     },
-     advancedline momentary/.style={
+    advancedline momentary/.style={
         advancedline,
         densely dashed,
         line cap=round
@@ -242,7 +250,7 @@
         anybutton,
         draw=none
     },
-     advancedconfig/.style={
+    advancedconfig/.style={
         anyconfig,
         fill=gray!8
     },
@@ -348,27 +356,40 @@
 }
 \tikzset{
     generalinfo/.style={
-        advancedconfig,
+        anyconfig,
         draw=gray,
         fill=white
     },
-    andurilinfo/.style={
+    thermalregulationinfo/.style={
         generalinfo
-    }
-}
-\tikzset{
-    legendlayout/.style={
-        rectangle,
-        draw=none,
-        minimum width=0.808cm,
-        minimum height=0.281cm,
-        inner sep=0cm,
-        outer sep=0cm,
-        sharp corners,
-        align=left
     },
-    legendfit/.style={
+    andurilinfo/.style={
+        generalinfo,
+        draw=orange-1!90,
+        very thick
+    },
+    voltagecolorinfo/.style={
         generalinfo
+    },
+    buttonpressesinfo/.style={
+        generalinfo
+    },
+    matrixlegendinfo/.style={
+        generalinfo,
+        matrix of nodes,
+        nodes in empty cells,
+        nodes={
+            rectangle,
+            draw=none,
+            minimum width=0.808cm,
+            minimum height=0.293cm,
+            inner sep=0cm,
+            outer sep=0cm,
+            sharp corners,
+            anchor=west
+        },
+        row sep=0.088cm,
+        column sep=0.225cm
     }
 }
 \tikzset{
@@ -394,18 +415,52 @@
     }
 }
 
+\usepackage{tikz-layers} % for additional layers
+
+\newcommand{\spacingv}{\\[0.75ex]}
+
 \newcommand{\oneline}[1]{\bfseries\normalsize{#1}}
-\newcommand{\firstline}[1]{\oneline{#1}\\[1.0ex]}
+\newcommand{\firstline}[1]{\oneline{#1}\spacingv}
 
 \newcommand{\onelinetable}[1]{\mdseries\footnotesize{#1}}
 \newcommand{\firstlinetable}[1]{\onelinetable{#1}\\[-0.55ex]}
+
+\newcommand{\infotextany}[1]{\textcolor{black}{#1}}
+\newcommand{\infotextadvanced}[1]{\textcolor{black}{#1}}
+\newcommand{\infotextsimple}[1]{\textcolor{black}{#1}}
+\newcommand{\infotextextendedsimple}[1]{\textcolor{black}{#1}}
+
+\newcommand{\textboxauxledcfv}{%
+    \voltageboxred{R-2.9,\vphantom{Voltage,Ú}}%
+    \voltagebox[yellow]{\hspace{0.013cm}Y-3.3,\vphantom{Voltage,Ú}}%
+    \voltagebox[green]{\hspace{0.013cm}G-3.5,\vphantom{Voltage,Ú}}%
+    \voltagebox[cyan]{\hspace{0.013cm}C-3.7,\vphantom{Voltage,Ú}}%
+    \voltagebox[blue]{\hspace{0.013cm}B-3.9,\vphantom{Voltage,Ú}}%
+    \voltageboxpurple{\hspace{0.013cm}P-4.1V\vphantom{Voltage,Ú}}%
+}
+\newcommand{\textboxvoltage}{%
+    \voltageboxred{V\vphantom{Voltage}}%
+    \voltagebox[yellow]{o\vphantom{Voltage}}%
+    \voltagebox[green]{lt\vphantom{Voltage}}%
+    \voltagebox[cyan]{a\vphantom{Voltage}}%
+    \voltagebox[blue]{g\vphantom{Voltage}}%
+    \voltageboxpurple{e\vphantom{Voltage}}%
+}
+\newcommand{\textboxpovd}{%
+    \voltageboxred{Po\vphantom{Post-Off Display}}%
+    \voltagebox[yellow]{st-\vphantom{Post-Off Display}}%
+    \voltagebox[green]{Off\vphantom{Post-Off Display}}%
+    \voltagebox[cyan]{\nobreakspace Di\vphantom{Post-Off Display}}%
+    \voltagebox[blue]{spl\vphantom{Post-Off Display}}%
+    \voltageboxpurple{ay\vphantom{Post-Off Display}}%
+}
 
 \newcommand{\inherited}{\char"002A}
 \newcommand{\default}{\char"25C1}
 
 \begin{document}
 
-\thispagestyle{empty}
+\thispagestyle{empty} % for removing the page number on this page
 
 \begin{tikzpicture}[
     remember picture, % for referencing the current page node
@@ -537,14 +592,14 @@ at (current page.center)[
     anchor=north,
     align=center
 ]
-{Smooth\default{}};
+{\infotextextendedsimple{Smooth\default{}}};
 \node (Ramp Style Stepped)[
-    below left=0.05cm and 0.3cm+0.02cm of Ramp.south east, % +0.02cm
-    % for vertical alignment
+    below left=0.05cm and 0.3cm+0.02cm of Ramp.south east,
+    % +0.02cm for vertical alignment
     anchor=north,
     align=center
 ]
-{Stepped};
+{\infotextextendedsimple{Stepped}};
 \node (Ramp Styles fit)[
     inner sep=-0.05cm,
     fit=(Ramp Style Smooth) (Ramp Style Stepped)
@@ -562,12 +617,12 @@ node[
     label={
         [align=left, xshift=0.57cm, yshift=-0.025cm]right:{
             \begin{tabular}{l}
-                Ramp up\\
-                (floor\textendash{}ceiling),\\
-                with reversal\\
-                if released\\
-                and held again\\
-                within 1s
+                \infotextany{Ramp up}\\
+                \infotextany{(floor\textendash{}ceiling),}\\
+                \infotextany{with reversal}\\
+                \infotextany{if released}\\
+                \infotextany{and held again}\\
+                \infotextany{within 1s}
             \end{tabular}
         }
     }
@@ -584,8 +639,8 @@ node[
         [align=left, xshift=0.57cm+0.8pt, % +0.8pt for vertical alignment
         yshift=-0.025cm]right:{
             \begin{tabular}{l}
-                Ramp down\\
-                (ceiling\textendash{}floor)
+                \infotextany{Ramp down}\\
+                \infotextany{(ceiling\textendash{}floor)}
             \end{tabular}
         }
     }
@@ -602,7 +657,7 @@ node[
         below,
         fill=none
     ]
-    at (Turbo.north) {\oneline{Turbo}};
+    at (Turbo.north) {\oneline{\infotextadvanced{Turbo}}};
     \node (Ramp label)[
         on-extra,
         inner xsep=0.425cm,
@@ -623,7 +678,7 @@ node[
 
 % Thermal Regulation
 \node (Thermal Regulation)[
-    generalinfo,
+    thermalregulationinfo,
     above=0.2cm of Ramp label.north,
     anchor=south
 ]
@@ -662,8 +717,8 @@ node[
     label={
         [align=left, xshift=-0.05cm, yshift=-0.025cm]right:{
             \begin{tabular}{l}
-                3C if only one\\
-                channel mode
+                \infotextextendedsimple{3C if only one}\\
+                \infotextextendedsimple{channel mode}
             \end{tabular}
         }
     }
@@ -690,11 +745,13 @@ node[
 
 % OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\node (OFF)[
-    onoff,
-    left=3.8cm of Ramp
-]
-{OFF};
+\begin{scope}[on glass layer]
+    \node (OFF)[
+        onoff,
+        left=3.8cm of Ramp
+    ]
+    {OFF};
+\end{scope}
 
 \draw (OFF.north) edge[
     ->,
@@ -709,20 +766,24 @@ node[
     pos=0.808
 ]
 {2H} (Turbo 0pt.north west);
-\draw (OFF.north) edge[
-    ->,
-    anyline,
-    shorten >=0.2pt,
-    out=90,
-    in=180,
-    looseness=1.3
-]
-node[
-    anybutton,
-    pos=0.7,
-]
-{2C}
-(Ramp 0pt.north west);
+
+\begin{scope}[on glass layer]
+    \draw (OFF.north) edge[
+        ->,
+        anyline,
+        shorten >=0.2pt,
+        out=90,
+        in=180,
+        looseness=1.3
+    ]
+    node[
+        anybutton,
+        pos=0.7,
+    ]
+    {2C}
+    (Ramp 0pt.north west);
+\end{scope}
+
 \draw (OFF.north east) edge[
     -, % no extra arrow tip
     simpleline momentary,
@@ -739,30 +800,35 @@ node[
 {2H} (Ramp 0pt.north west);
 
 % Advanced UI: Anduril 1 turbo style
-\draw (Ramp 0pt.west) edge[
-    {Round Cap[sep=2.5cm]}-{Round Cap[sep=1.3cm]},
-    advancedline,
-    white,
-    line width=2.4pt,
-    shorten >=0.4pt,
-    shorten <=0.4pt,
-    bend left=55
-]
-node
-{} (Turbo 0pt.north west);
-\draw (Ramp 0pt.west) edge[
-    {<[scale width=0.5]->[scale width=0.5]},
-    advancedline,
-    shorten >=0.4pt,
-    shorten <=0.4pt,
-    bend left=55
-]
-node[
-    advancedbutton,
-    left=-0.15cm,
-    pos=0.8
-]
-{2C} (Turbo 0pt.north west);
+\begin{scope}[on glass layer]
+    \draw (Ramp 0pt.west) edge[
+        {Round Cap[sep=2.5cm]}-{Round Cap[sep=1.3cm]},
+        advancedline,
+        white,
+        line width=2.4pt,
+        shorten >=0.4pt,
+        shorten <=0.4pt,
+        bend left=55
+    ]
+    node
+    {} (Turbo 0pt.north west);
+\end{scope}
+
+\begin{scope}[on glass layer]
+    \draw (Ramp 0pt.west) edge[
+        {<[scale width=0.5]->[scale width=0.5]},
+        advancedline,
+        shorten >=0.4pt,
+        shorten <=0.4pt,
+        bend left=55
+    ]
+    node[
+        advancedbutton,
+        left=-0.15cm,
+        pos=0.8
+    ]
+    {2C} (Turbo 0pt.north west);
+\end{scope}
 
 \draw (Ramp 0pt.west) edge[
     {<[scale width=0.5]->[scale width=0.5]},
@@ -778,19 +844,22 @@ node[
 ]
 {2C} (Ramp 0pt.north west);
 
-\draw (OFF.south) edge[
-    ->,
-    anyline,
-    shorten >=0.2pt,
-    out=270,
-    in=180,
-    looseness=1.3
-]
-node[
-    anybutton,
-    pos=0.7
-]
-{1H} (Ramp 0pt.south west);
+\begin{scope}[on glass layer]
+    \draw (OFF.south) edge[
+        ->,
+        anyline,
+        shorten >=0.2pt,
+        out=270,
+        in=180,
+        looseness=1.3
+    ]
+    node[
+        anybutton,
+        pos=0.7
+    ]
+    {1H} (Ramp 0pt.south west);
+\end{scope}
+
 \draw (OFF.east) edge[
     <->,
     anyline basic use,
@@ -810,19 +879,22 @@ node[
 ]
 {LOCK\footnotesize OUT};
 
-\draw (Lockout.north) edge[
-    ->,
-    anyline,
-    shorten >=0.2pt,
-    out=90,
-    in=0,
-    looseness=1.3
-]
-node[
-    anybutton,
-    pos=0.7
-]
-{5C} (Ramp 0pt.north east);
+\begin{scope}[on glass layer]
+    \draw (Lockout.north) edge[
+        ->,
+        anyline,
+        shorten >=0.2pt,
+        out=90,
+        in=0,
+        looseness=1.3
+    ]
+    node[
+        anybutton,
+        pos=0.7
+    ]
+    {5C} (Ramp 0pt.north east);
+\end{scope}
+
 \draw (Lockout.south) edge[
     ->,
     anyline,
@@ -849,11 +921,13 @@ node[
 
 % ON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\node (ON)[
-    onoff,
-    left=4.4cm of OFF
-]
-{ON};
+\begin{scope}[on glass layer]
+    \node (ON)[
+        onoff,
+        left=4.4cm of OFF
+    ]
+    {ON};
+\end{scope}
 
 \draw (ON.east) edge[
     <->,
@@ -1058,7 +1132,7 @@ node[
 % Candle Timer
 \node (Candle Timer)[
     extendedsimpleconfig,
-    above left=0.67cm and 1cm of Candle from OFF.west,
+    above left=0.66cm and 1cm of Candle from OFF.west,
     anchor=east
 ]
 {
@@ -1130,7 +1204,7 @@ at (current page.south)[
     (Party and Tactical)\\
     3C = Next channel mode\\
     (except Police),\\
-    saved per strobe mode;\\
+    saved per strobe mode\\
     Channel 1\default{}\\
     4C = Previous strobe mode\vphantom{y}
 };
@@ -1159,8 +1233,9 @@ at (current page.south)[
         align=right
     ]
     {
-        \normalsize\textbf{Strobe / Mood Modes}\\[1.0ex]
-        1C = Off
+        \normalsize\textbf{\infotextextendedsimple{Strobe / Mood Modes}}
+        \spacingv
+        \infotextextendedsimple{1C = Off}
     };
 \end{scope}
 
@@ -1173,7 +1248,7 @@ at (current page.south)[
     postaction={
         decoration={
             text along path,
-            text={|\footnotesize|Mode memory},
+            text={|\footnotesize\color{black}|Mode memory},
             reverse path,
             text align={left indent=0.65cm},
             raise=0.08cm
@@ -1186,7 +1261,7 @@ node[
     pos=0.55
 ]
 {3H} (Strobe Modes fit.44);
-\draw (Strobe Modes fit.60) edge[
+\draw (Strobe Modes fit.61) edge[
     ->,
     extendedsimpleline,
     out=90,
@@ -1199,8 +1274,8 @@ node[
     label={
         [align=left, xshift=-0.05cm, yshift=-0.025cm]right:{
             \begin{tabular}{l}
-                Momentary\\
-                Strobe Mode
+                \infotextextendedsimple{Momentary}\\
+                \infotextextendedsimple{Strobe Mode}
             \end{tabular}
         }
    }
@@ -1284,8 +1359,8 @@ node[
     align=left
 ]
 {
-    Lockout mode's\\
-    aux LED settings
+    \infotextadvanced{Lockout mode's}\\
+    \infotextadvanced{aux LED settings}
 };
 
 % Blinky / Utility Modes from OFF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1303,7 +1378,6 @@ at (current page.south)[
     \firstline{Next Channel Mode\inherited{}}
     For number blinks only;\\
     Tint Ramp\default{}
-    
 };
 
 % Batt Check from OFF
@@ -1327,8 +1401,8 @@ at (current page.south)[
     align=left
 ]
 {
-    \textbf{Simple UI: voltage displayed once}\\
-    \textbf{Advanced UI: voltage displayed continuously}
+    \textbf{\infotextany{Simple UI: voltage displayed once}}\\
+    \textbf{\infotextany{Advanced UI: voltage displayed continuously}}
 };
 
 \draw (Batt Check from OFF.213) edge[
@@ -1345,64 +1419,66 @@ node[
 ]
 {3C} (Next Channel Mode from Batt Check.north west);
 
-\draw (OFF.south) edge[
-    {Round Cap[sep=6.9cm]}-{Round Cap[sep=3.1cm]},
-    anyline,
-    white,
-    line width=2.4pt,
-    out=270,
-    in=165,
-    looseness=1.3
-]
-node
-{} (Batt Check from OFF.172);
-\draw (OFF.south) edge[
-    ->,
-    anyline,
-    out=270,
-    in=165,
-    looseness=1.3
-]
-node[
-    anybutton,
-    pos=0.48
-]
-{3C} (Batt Check from OFF.172);
+\begin{scope}[on glass layer]
+    \draw (OFF.south) edge[
+        {Round Cap[sep=6.9cm]}-{Round Cap[sep=3cm]},
+        anyline,
+        white,
+        line width=2.4pt,
+        out=270,
+        in=165,
+        looseness=1.3
+    ]
+    node
+    {} (Batt Check from OFF.172);
+\end{scope}
+
+\begin{scope}[on glass layer]
+    \draw (OFF.south) edge[
+        ->,
+        anyline,
+        out=270,
+        in=165,
+        looseness=1.3
+    ]
+    node[
+        anybutton,
+        pos=0.45
+    ]
+    {3C} (Batt Check from OFF.172);
+\end{scope}
 
 % Voltage Config from Batt Check
-\node (Voltage Config from Batt Check)[
-    advancedtable,
-    above right=0.4cm and 1.4cm of Tactical Mode Config.south east,
-    anchor=south west
-]
-{
-    \begin{tabular}{m{0.35cm} l}
-        \multicolumn{2}{l}{
-            \thead{Voltage Config\inherited{}}
-        }\\
-        {1} & \makecell{
-            Correction Factor
-        }\\
-        {} & \makecell{
-            \char"00B1{}0.30V, 0.05V steps\\
-            1C = \char"2212{}0.30V\\
-            7C = 0V\default{}\\
-            13C = +0.30V
-        }\\
-        {2} & \makecell{
-            \voltageboxred{Po\vphantom{Post-Off Display}}%
-            \voltagebox[yellow]{st-\vphantom{Post-Off Display}}%
-            \voltagebox[green]{Off\vphantom{Post-Off Display}}%
-            \voltagebox[cyan]{\nobreakspace Di\vphantom{Post-Off Display}}%
-            \voltagebox[blue]{spl\vphantom{Post-Off Display}}%
-            \voltageboxpurple{ay\vphantom{Post-Off Display}}
-        }\\
-        {} & \makecell{
-            0C = Disable\\
-            nC = n seconds; 4s\default{}
-        }
-    \end{tabular}
-};
+\begin{scope}[on background layer]
+    \node (Voltage Config from Batt Check)[
+        advancedtable,
+        above right=0.4cm and 1.4cm of Tactical Mode Config.south east,
+        anchor=south west
+    ]
+    {
+        \begin{tabular}{m{0.35cm} l}
+            \multicolumn{2}{l}{
+                \thead{Voltage Config\inherited{}}
+            }\\
+            {1} & \makecell{
+                Correction Factor
+            }\\
+            {} & \makecell{
+                \char"00B1{}0.30V, 0.05V steps\\
+                1C = \char"2212{}0.30V\\
+                7C = 0V\default{}\\
+                13C = +0.30V
+            }\\
+            {2} & \makecell{
+                \textboxpovd{}
+            }\\
+            {} & \makecell{
+                0C = Disable\\
+                nC = n seconds; 4s\default{}
+            }
+        \end{tabular}
+    };
+\end{scope}
 
 \draw (Batt Check from OFF.197) edge[
     ->,
@@ -1441,7 +1517,7 @@ node[
 % Temp Check Thermal Config
 \node (Temp Check Thermal Config)[
     advancedtable,
-    above right=0.2cm and 0.95cm of Temp Check from Batt Check.north east,
+    above right=0.2cm and 1cm of Temp Check from Batt Check.north east,
     anchor=north west
 ]
 {
@@ -1501,7 +1577,7 @@ node[
 % Beacon Speed
 \node (Beacon Speed)[
     advancedconfig,
-    below right=0.68cm and 0.95cm of Beacon from Temp Check.east,
+    below right=0.68cm and 1cm of Beacon from Temp Check.east,
     anchor=west
 ]
 {
@@ -1579,8 +1655,9 @@ node[
         align=left
     ]
     {
-        \normalsize\textbf{Blinky / Utility Modes}\\[1.0ex]
-        1C = Off
+        \normalsize\textbf{\infotextadvanced{Blinky / Utility Modes}}
+        \spacingv
+        \infotextadvanced{1C = Off}
     };
 \end{scope}
 
@@ -1591,22 +1668,24 @@ at (current page.west)[
     anyconfig,
     anchor=west,
     xshift=1cm,
-    yshift=0.2cm
+    yshift=0.4cm
 ]
 {\oneline{Next Channel Mode}};
 
-\draw (ON.west) edge[
-    ->,
-    anyline,
-    out=180,
-    in=0,
-    looseness=1
-]
-node[
-    anybutton,
-    pos=0.65
-]
-{3C} (Next Channel Mode from ON.east);
+\begin{scope}[on glass layer]
+    \draw (ON.west) edge[
+        ->,
+        anyline,
+        out=180,
+        in=0,
+        looseness=1
+    ]
+    node[
+        anybutton,
+        pos=0.65
+    ]
+    {3C} (Next Channel Mode from ON.east);
+\end{scope}
 
 % Tint Ramping from ON
 \node (Tint Ramping from ON)
@@ -1615,20 +1694,25 @@ at (current page.west)[
     below=0.25cm of Next Channel Mode from ON.south west,
     anchor=north west
 ]
-{\oneline{Tint Ramping}};
+{
+    \firstline{Tint Ramping}
+    If this channel mode can
+};
 
-\draw (ON.west) edge[
-    ->,
-    anyline,
-    out=180,
-    in=0,
-    looseness=1
-]
-node[
-    anybutton,
-    pos=0.65
-]
-{3H} (Tint Ramping from ON.east);
+\begin{scope}[on glass layer]
+    \draw (ON.west) edge[
+        ->,
+        anyline,
+        out=180,
+        in=0,
+        looseness=1
+    ]
+    node[
+        anybutton,
+        pos=0.6
+    ]
+    {3H} (Tint Ramping from ON.east);
+\end{scope}
 
 % Momentary Turbo 3H from ON
 \node (Momentary Turbo 3H from ON)[
@@ -1650,7 +1734,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.67
+    pos=0.667
 ]
 {3H} (Momentary Turbo 3H from ON.east);
 
@@ -1823,13 +1907,13 @@ node[
     label={
         [align=left, xshift=0cm, yshift=0cm]below:{
             \begin{tabular}{l}
-                9H from any mode\\
-                unless overridden
+                \infotextadvanced{9H from any mode}\\
+                \infotextadvanced{unless overridden}
             \end{tabular}
         }
    }
 ]
-{9H} (Channel Mode Config from ON.322);
+{9H} (Channel Mode Config from ON.318);
 
 % Ramp Extras Config from ON
 \node (Ramp Extras Config from ON)[
@@ -2068,7 +2152,7 @@ node[
 ]
 node[
     anybutton,
-    pos=0.725
+    pos=0.73
 ]
 {2H} (Momentary Low from Lockout.west);
 
@@ -2089,30 +2173,27 @@ node[
 ]
 node[
     anybutton,
-    pos=0.735
+    pos=0.745
 ]
 {3H} (Next Channel Mode from Lockout.west);
 
 % Aux LED Color from OFF right %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\node (Aux LED Color from OFF right)[
-    extendedsimpleconfig,
-    above right=1.2cm and 3.2cm of Lockout.center,
-    anchor=south
-]
-{
-    \firstline{OFF Aux LED Color}
-    Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
-    Cyan \char"2192{}\\
-    Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
-    Disco \char"2192{} Rainbow\default{} \char"2192{}
-    \voltageboxred{V\vphantom{Voltage}}%
-    \voltagebox[yellow]{o\vphantom{Voltage}}%
-    \voltagebox[green]{lt\vphantom{Voltage}}%
-    \voltagebox[cyan]{a\vphantom{Voltage}}%
-    \voltagebox[blue]{g\vphantom{Voltage}}%
-    \voltageboxpurple{e\vphantom{Voltage}}
-};
+\begin{scope}[on background layer]
+    \node (Aux LED Color from OFF right)[
+        extendedsimpleconfig,
+        above right=1.2cm and 3.2cm of Lockout.center,
+        anchor=south
+    ]
+    {
+        \firstline{OFF Aux LED Color}
+        Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
+        Cyan \char"2192{}\\
+        Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
+        Disco \char"2192{} Rainbow\default{} \char"2192{}
+        \textboxvoltage{}
+    };
+\end{scope}
 
 \draw (OFF right.north) edge[
     ->,
@@ -2152,24 +2233,21 @@ node[
 {7C} (Aux LED Pattern from OFF right.east);
 
 % Aux LED Color from Lockout
-\node (Aux LED Color from Lockout)[
-    extendedsimpleconfig,
-    above=0.25cm of Aux LED Pattern from OFF right.north west,
-    anchor=south west
-]
-{
-    \firstline{Lockout Aux LED Color}
-    Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
-    Cyan \char"2192{}\\
-    Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
-    Disco \char"2192{} Rainbow \char"2192{}
-    \voltageboxred{V\vphantom{Voltage}}%
-    \voltagebox[yellow]{o\vphantom{Voltage}}%
-    \voltagebox[green]{lt\vphantom{Voltage}}%
-    \voltagebox[cyan]{a\vphantom{Voltage}}%
-    \voltagebox[blue]{g\vphantom{Voltage}}%
-    \voltageboxpurple{e\vphantom{Voltage}}\default{}
-};
+\begin{scope}[on background layer]
+    \node (Aux LED Color from Lockout)[
+        extendedsimpleconfig,
+        above=0.25cm of Aux LED Pattern from OFF right.north west,
+        anchor=south west
+    ]
+    {
+        \firstline{Lockout Aux LED Color}
+        Red \char"2192{} Yellow \char"2192{} Green \char"2192{}
+        Cyan \char"2192{}\\
+        Blue \char"2192{} Purple \char"2192{} White \char"2192{}\\
+        Disco \char"2192{} Rainbow \char"2192{}
+        \textboxvoltage{}\default{}
+    };
+\end{scope}
 
 \draw (Lockout.north) edge[
     ->,
@@ -2229,7 +2307,7 @@ node[
 ]
 node[
     advancedbutton,
-    pos=0.8
+    pos=0.82
 ]
 {10H} (Auto-lock Config from Lockout.south);
 
@@ -2247,7 +2325,8 @@ at (current page.south east)[
     Physical Reset:\\
     reconnect power\\
     while holding button\\
-    for about 4s\\[1.0ex]
+    for about 4s
+    \spacingv
     Simple UI is enabled\\
     after each factory reset.
 };
@@ -2256,17 +2335,18 @@ at (current page.south east)[
     ->,
     anyline,
     out=270,
-    in=135,
-    looseness=0.55
+    in=170,
+    out looseness=0.6,
+    in looseness=0.4
 ]
 node[
     anybutton,
-    pos=0.77,
+    pos=0.72,
     label={
         [align=left, xshift=-0.05cm, yshift=-0.025cm]right:{
             \begin{tabular}{l}
-                Keep holding\\
-                for about 4s
+                \infotextany{Keep holding}\\
+                \infotextany{for about 4s}
             \end{tabular}
         }
     }
@@ -2282,7 +2362,8 @@ node[
 {
     \firstline{Version Check}
     MODEL-YYYY-MM-DD-\\
-    SINCE-DIRTY\\[1.0ex]
+    SINCE-DIRTY
+    \spacingv
     SINCE and DIRTY\\
     may be omitted.
 };
@@ -2291,12 +2372,13 @@ node[
     ->,
     anyline,
     out=270,
-    in=135,
-    looseness=0.6
+    in=170,
+    out looseness=0.7,
+    in looseness=0.5
 ]
 node[
     anybutton,
-    pos=0.75
+    pos=0.72
 ]
 {15+C} (Version Check from OFF right.west);
 
@@ -2311,18 +2393,20 @@ at (current page.east)[
 ]
 {Advanced UI};
 
-\draw (OFF right.east) edge[
-    ->,
-    simpleline,
-    out=0,
-    in=90,
-    looseness=1.2
-]
-node[
-    simplebutton,
-    pos=0.68
-]
-{10H} (Advanced UI switch from OFF right.north);
+\begin{scope}[on glass layer]
+    \draw (OFF right.east) edge[
+        ->,
+        simpleline,
+        out=0,
+        in=90,
+        looseness=1.2
+    ]
+    node[
+        simplebutton,
+        pos=0.68
+    ]
+    {10H} (Advanced UI switch from OFF right.north);
+\end{scope}
 
 % Simple UI switch from OFF right
 \node (Simple UI switch from OFF right)
@@ -2368,33 +2452,32 @@ at (current page.north east)[
     \Huge\textbf{Andúril 2 UI}\\[2.0ex]
     \modelnumberbox{\large\textbf{Model Number 0135}}\\[2.0ex]
     \normalsize Andúril 2 Release 2024-04-20\\[1.0ex]
-    \normalsize Diagram Release 0135-37\\[2.0ex]
+    \normalsize Diagram Release 0135-38\\[1.5ex]
     Diagram Repository:\\
     https://github.com/dirtydancing/\\
-    anduril-tikz-diagram-0135\\[1.0ex]
+    anduril-tikz-diagram-0135
+    \spacingv
     ToyKeeper's Andúril User Manual:\\
     https://toykeeper.net/anduril/manual
 };
 
 % Aux LED Color for Voltage
-\node (Aux LED Color for Voltage)[
-    generalinfo,
-    below=0.25cm of Anduril 2 UI.south east,
-    anchor=north east
-]
-{
-    \oneline{Aux LED Color for Voltage}\\[0.75ex]
-    \voltageboxred{R-2.9,\vphantom{Voltage,Ú}}%
-    \voltagebox[yellow]{\hspace{0.013cm}Y-3.3,\vphantom{Voltage,Ú}}%
-    \voltagebox[green]{\hspace{0.013cm}G-3.5,\vphantom{Voltage,Ú}}%
-    \voltagebox[cyan]{\hspace{0.013cm}C-3.7,\vphantom{Voltage,Ú}}%
-    \voltagebox[blue]{\hspace{0.013cm}B-3.9,\vphantom{Voltage,Ú}}%
-    \voltageboxpurple{\hspace{0.013cm}P-4.1V\vphantom{Voltage,Ú}}
-};
+\begin{scope}[on background layer]
+    \node (Aux LED Color for Voltage)[
+        voltagecolorinfo,
+        below=0.25cm of Anduril 2 UI.south east,
+        anchor=north east
+    ]
+    {
+        \oneline{Aux LED Color for Voltage}
+        \spacingv
+        \textboxauxledcfv{}
+    };
+\end{scope}
 
 % Button Presses
 \node (Button Presses)[
-    generalinfo,
+    buttonpressesinfo,
     left=0.8cm of Anduril 2 UI.north west,
     anchor=north east
 ]
@@ -2406,29 +2489,34 @@ at (current page.north east)[
     2C: Click, Click\\
     2H: Click, Hold\\
     3C: Click, Click, Click\\
-    3H: Click, Click, Hold\\[1.0ex]
-    In a config menu, release\\
-    button after the desired\\
-    number of blinks; when\\
-    entering a value, 1H = 10C
+    3H: Click, Click, Hold
+    \spacingv
+    \infotextadvanced{In a config menu, release}\\
+    \infotextadvanced{button after the desired}\\
+    \infotextadvanced{number of blinks; when}\\
+    \infotextadvanced{entering a value, 1H = 10C}
 };
 
 % Legend
-\node (Legend basic use text)[
-    legendlayout,
-    below left=0.1cm and 0.9cm of Button Presses.north west,
-    anchor=north east
+\matrix (Legend)[
+    matrixlegendinfo,
+    left=0.8cm of Button Presses.north west,
+    matrix anchor=north east
 ]
-{All the user needs to know for basic use\vphantom{y}};
+{
+    & All the user needs to know for basic use\vphantom{y}\\
+    & Simple UI and Advanced UI function\\
+    & Simple UI function only\\
+    & Advanced UI function only\\
+    & Continuous effect\vphantom{y}\\
+    & Momentary effect\\
+    \normalsize\textbf{\infotextadvanced{\inherited{}}}&
+    Inherited by Simple UI\\
+    \normalsize\textbf{\infotextadvanced{\default{}}}&
+    Default setting after each factory reset\\
+};
 
-\node (Legend basic use picture)[
-    legendlayout,
-    left=0.22cm of Legend basic use text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend basic use picture.west) edge[
+\draw (Legend-1-1.west) edge[
     -,
     anyline basic use legend,
     out=0,
@@ -2438,23 +2526,8 @@ node[
     anybutton basic use,
     pos=0.5
 ]
-{\footnotesize 1C} (Legend basic use picture.east);
-
-\node (Legend Simple and Advanced text)[
-    legendlayout,
-    below=0.1cm of Legend basic use text.south west,
-    anchor=north west
-]
-{Simple UI and Advanced UI function};
-
-\node (Legend Simple and Advanced picture)[
-    legendlayout,
-    left=0.22cm of Legend Simple and Advanced text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend Simple and Advanced picture.west) edge[
+{\footnotesize 1C} (Legend-1-1.east);
+\draw (Legend-2-1.west) edge[
     -,
     anyline legend,
     out=0,
@@ -2464,23 +2537,8 @@ node[
     anybutton,
     pos=0.5
 ]
-{\footnotesize 1C} (Legend Simple and Advanced picture.east);
-
-\node (Legend Simple only text)[
-    legendlayout,
-    below=0.1cm of Legend Simple and Advanced text.south west,
-    anchor=north west
-]
-{Simple UI function only};
-
-\node (Legend Simple only picture)[
-    legendlayout,
-    left=0.22cm of Legend Simple only text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend Simple only picture.west) edge[
+{\footnotesize 1C} (Legend-2-1.east);
+\draw (Legend-3-1.west) edge[
     -,
     simpleline legend,
     out=0,
@@ -2490,23 +2548,8 @@ node[
     simplebutton,
     pos=0.5
 ]
-{\footnotesize 1C} (Legend Simple only picture.east);
-
-\node (Legend Advanced only text)[
-    legendlayout,
-    below=0.1cm of Legend Simple only text.south west,
-    anchor=north west
-]
-{Advanced UI function only};
-
-\node (Legend Advanced only picture)[
-    legendlayout,
-    left=0.22cm of Legend Advanced only text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend Advanced only picture.west) edge[
+{\footnotesize 1C} (Legend-3-1.east);
+\draw (Legend-4-1.west) edge[
     -,
     advancedline legend,
     out=0,
@@ -2516,104 +2559,21 @@ node[
     advancedbutton,
     pos=0.5
 ]
-{\footnotesize 1C} (Legend Advanced only picture.east);
-
-\node (Legend Continuous effect text)[
-    legendlayout,
-    below=0.1cm of Legend Advanced only text.south west,
-    anchor=north west
-]
-{Continuous effect\vphantom{y}};
-
-\node (Legend Continuous effect picture)[
-    legendlayout,
-    left=0.22cm of Legend Continuous effect text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend Continuous effect picture.west) edge[
+{\footnotesize 1C} (Legend-4-1.east);
+\draw (Legend-5-1.west) edge[
     -,
     anyline legend,
     out=0,
     in=180
 ]
-(Legend Continuous effect picture.east);
-
-\node (Legend Momentary effect text)[
-    legendlayout,
-    below=0.1cm of Legend Continuous effect text.south west,
-    anchor=north west
-]
-{Momentary effect};
-
-\node (Legend Momentary effect picture)[
-    legendlayout,
-    left=0.22cm of Legend Momentary effect text.west,
-    anchor=east
-]
-{};
-
-\draw (Legend Momentary effect picture.west) edge[
+(Legend-5-1.east);
+\draw (Legend-6-1.west) edge[
     -,
     anyline momentary legend,
     out=0,
     in=180
 ]
-(Legend Momentary effect picture.east);
-
-\node (Legend Inherited by Simple text)[
-    legendlayout,
-    below=0.1cm of Legend Momentary effect text.south west,
-    anchor=north west
-]
-{Inherited by Simple UI};
-
-\node (Legend Inherited by Simple picture)[
-    legendlayout,
-    left=0.22cm of Legend Inherited by Simple text.west,
-    anchor=east
-]
-{\normalsize\textbf{\inherited{}}};
-
-\node (Legend Default setting text)[
-    legendlayout,
-    below=0.1cm of Legend Inherited by Simple text.south west,
-    anchor=north west
-]
-{Default setting after each factory reset};
-
-\node (Legend Default setting picture)[
-    legendlayout,
-    left=0.22cm of Legend Default setting text.west,
-    anchor=east
-]
-{\normalsize\textbf{\default{}}};
-
-% Legend fit
-\begin{scope}[on background layer]
-    \node (Legend fit)[
-        legendfit,
-        yshift=-0.2pt, % 1/2 line thickness for outer alignment
-        fit=(Legend basic use text)
-        (Legend basic use picture)
-        (Legend Simple and Advanced text)
-        (Legend Simple and Advanced picture)
-        (Legend Simple only text)
-        (Legend Simple only picture)
-        (Legend Advanced only text)
-        (Legend Advanced only picture)
-        (Legend Continuous effect text)
-        (Legend Continuous effect picture)
-        (Legend Momentary effect text)
-        (Legend Momentary effect picture)
-        (Legend Inherited by Simple text)
-        (Legend Inherited by Simple picture)
-        (Legend Default setting text)
-        (Legend Default setting picture)
-    ]
-    {};
-\end{scope}
+(Legend-6-1.east);
 
 \end{tikzpicture}
 
