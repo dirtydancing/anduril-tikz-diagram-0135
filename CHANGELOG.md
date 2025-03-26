@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-38 (Date: 2025-03-26)
+
+- Adapted diagram-0135 to updated diagram
+
 ## 2024-04-20.0135-37 (Date: 2025-02-17)
 
 - Rearranged Tactical Mode Config
