@@ -1239,28 +1239,31 @@ at (current page.south)[
     };
 \end{scope}
 
-\draw (OFF.south) edge[
-    ->,
-    extendedsimpleline,
-    out=270,
-    in=0,
-    looseness=1.4,
-    postaction={
-        decoration={
-            text along path,
-            text={|\footnotesize\color{black}|Mode memory},
-            reverse path,
-            text align={left indent=0.65cm},
-            raise=0.08cm
-        },
-        decorate
-    }
-]
-node[
-    extendedsimplebutton,
-    pos=0.55
-]
-{3H} (Strobe Modes fit.44);
+\begin{scope}[on glass layer]
+    \draw (OFF.south) edge[
+        ->,
+        extendedsimpleline,
+        out=270,
+        in=0,
+        looseness=1.4,
+        postaction={
+            decoration={
+                text along path,
+                text={|\footnotesize\color{black}|Mode memory},
+                reverse path,
+                text align={left indent=0.65cm},
+                raise=0.08cm
+            },
+            decorate
+        }
+    ]
+    node[
+        extendedsimplebutton,
+        pos=0.55
+    ]
+    {3H} (Strobe Modes fit.44);
+\end{scope}
+
 \draw (Strobe Modes fit.61) edge[
     ->,
     extendedsimpleline,
@@ -1769,18 +1772,21 @@ node[
     \firstline{Sunset Timer}
     1 blink = 5 minutes
 };
-\draw (ON.north) edge[
-    ->,
-    extendedsimpleline,
-    out=90,
-    in=180,
-    looseness=1
-]
-node[
-    extendedsimplebutton,
-    pos=0.65
-]
-{5H} (Sunset Timer from ON.west);
+
+\begin{scope}[on glass layer]
+    \draw (ON.north) edge[
+        ->,
+        extendedsimpleline,
+        out=90,
+        in=180,
+        looseness=1
+    ]
+    node[
+        extendedsimplebutton,
+        pos=0.65
+    ]
+    {5H} (Sunset Timer from ON.west);
+\end{scope}
 
 % Ramp Config from ON %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2249,18 +2255,20 @@ node[
     };
 \end{scope}
 
-\draw (Lockout.north) edge[
-    ->,
-    extendedsimpleline,
-    out=90,
-    in=180,
-    looseness=0.8
-]
-node[
-    extendedsimplebutton,
-    pos=0.65
-]
-{7H} (Aux LED Color from Lockout.west);
+\begin{scope}[on glass layer]
+    \draw (Lockout.north) edge[
+        ->,
+        extendedsimpleline,
+        out=90,
+        in=180,
+        looseness=0.8
+    ]
+    node[
+        extendedsimplebutton,
+        pos=0.65
+    ]
+    {7H} (Aux LED Color from Lockout.west);
+\end{scope}
 
 % Aux LED Pattern from Lockout
 \node (Aux LED Pattern from Lockout)[
@@ -2273,18 +2281,20 @@ node[
     Off \char"2192{} Low \char"2192{} High \char"2192{} Blinking\default{}
 };
 
-\draw (Lockout.north) edge[
-    ->,
-    extendedsimpleline,
-    out=90,
-    in=180,
-    looseness=0.8
-]
-node[
-    extendedsimplebutton,
-    pos=0.7
-]
-{7C} (Aux LED Pattern from Lockout.west);
+\begin{scope}[on glass layer]
+    \draw (Lockout.north) edge[
+        ->,
+        extendedsimpleline,
+        out=90,
+        in=180,
+        looseness=0.8
+    ]
+    node[
+        extendedsimplebutton,
+        pos=0.7
+    ]
+    {7C} (Aux LED Pattern from Lockout.west);
+\end{scope}
 
 % Auto-lock Config from Lockout
 \node (Auto-lock Config from Lockout)[
