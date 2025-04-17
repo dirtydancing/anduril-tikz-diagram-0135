@@ -954,19 +954,21 @@ node[
     {2C} (Turbo 0pt.north west);
 }
 
-\draw (Ramp 0pt.west) edge[
-    {<[scale width=0.5]->[scale width=0.5]},
-    simpleline,
-    shorten >=0.4pt,
-    shorten <=0.4pt,
-    bend left=30
-]
-node[
-    simplebutton,
-    left=-0.15cm,
-    pos=0.5
-]
-{2C} (Ramp 0pt.north west);
+{ [on above layer]
+    \draw (Ramp 0pt.west) edge[
+        {<[scale width=0.5]->[scale width=0.5]},
+        simpleline,
+        shorten >=0.4pt,
+        shorten <=0.4pt,
+        bend left=30
+    ]
+    node[
+        simplebutton,
+        left=-0.15cm,
+        pos=0.5
+    ]
+    {2C} (Ramp 0pt.north west);
+}
 
 { [on above layer]
     \draw (OFF.south) edge[
@@ -984,16 +986,18 @@ node[
     {1H} (Ramp 0pt.south west);
 }
 
-\draw (OFF.east) edge[
-    <->,
-    anyline basic use,
-    shorten >=0.2pt
-]
-node[
-    anybutton basic use,
-    pos=0.5
-]
-{1C} (Ramp 0pt.west);
+{ [on above layer]
+    \draw (OFF.east) edge[
+        <->,
+        anyline basic use,
+        shorten >=0.2pt
+    ]
+    node[
+        anybutton basic use,
+        pos=0.5
+    ]
+    {1C} (Ramp 0pt.west);
+}
 
 % 03 Lockout %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
