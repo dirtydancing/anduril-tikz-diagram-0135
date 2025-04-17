@@ -754,7 +754,8 @@ node[
     anybutton,
     pos=0.42,
     label={
-        [align=left, xshift=0.57cm+0.8pt, % +0.8pt for vertical alignment
+        [align=left, xshift=0.57cm+0.8pt,
+        % +0.8pt for vertical alignment
         yshift=-0.025cm]right:{
             \begin{tabular}{l}
                 \infotextany{Ramp down}\\
@@ -1247,7 +1248,8 @@ node[
 % Candle from OFF
 \node (Candle from OFF)[
     extendedsimpleconfig-mode,
-    above right=0.45cm and 1.2cm of Lightning Storm from Police Strobe.east,
+    above right=0.45cm and 1.2cm of
+    Lightning Storm from Police Strobe.east,
     anchor=west
 ]
 {\oneline{Candle\default{}}};
@@ -1590,7 +1592,8 @@ node[
 { [on background layer]
     \node (Voltage Config from Batt Check)[
         advancedtable,
-        above right=0.4cm and 1.4cm of Tactical Mode Config.south east,
+        above right=0.4cm and 1.4cm of
+        Tactical Mode Config.south east,
         anchor=south west
     ]
     {
@@ -1655,7 +1658,8 @@ node[
 % Temp Check Thermal Config
 \node (Temp Check Thermal Config)[
     advancedtable,
-    above right=0.2cm and 1cm of Temp Check from Batt Check.north east,
+    above right=0.2cm and 1cm of
+    Temp Check from Batt Check.north east,
     anchor=north west
 ]
 {
@@ -2134,7 +2138,8 @@ node[
 % Manual Memory from ON
 \node (Manual Memory from ON)[
     advancedconfig,
-    above right=0.6cm and 0.4cm of Ramp Extras Config from ON.south east,
+    above right=0.6cm and 0.4cm of
+    Ramp Extras Config from ON.south east,
     anchor=south west
 ]
 {
@@ -2359,7 +2364,8 @@ node[
 ]
 {
     \firstline{OFF Aux LED Pattern}
-    Off \char"2192{} Low\default{} \char"2192{} High \char"2192{} Blinking
+    Off \char"2192{} Low\default{} \char"2192{}
+    High \char"2192{} Blinking
 };
 
 \draw (OFF right.north) edge[
@@ -2413,7 +2419,8 @@ node[
 ]
 {
     \firstline{Lockout Aux LED Pattern}
-    Off \char"2192{} Low \char"2192{} High \char"2192{} Blinking\default{}
+    Off \char"2192{} Low \char"2192{}
+    High \char"2192{} Blinking\default{}
 };
 
 \draw (Lockout.north) edge[
