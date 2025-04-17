@@ -2,6 +2,10 @@
 
 ## Next
 
+## 2024-04-20.0135-41 (Date: 2025-04-17)
+
+- Added support for page color
+
 ## 2024-04-20.0135-40 (Date: 2025-04-10)
 
 - Adjusted support for layers
