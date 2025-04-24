@@ -2,6 +2,11 @@
 
 ## Next
 
+## 2024-04-20.0135-42 (Date: 2025-04-24)
+
+- Rephrased Factory Reset
+- Unified Lockout to Off extra arrows
+
 ## 2024-04-20.0135-41 (Date: 2025-04-17)
 
 - Added support for page color
