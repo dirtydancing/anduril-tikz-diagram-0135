@@ -14,8 +14,8 @@ For recent changes, check the [Changelog](CHANGELOG.md).
 
 This is an exemplary model-specific diagram for
 [model number](https://github.com/ToyKeeper/anduril/blob/trunk/MODELS)
-0135, `hank-emisar-2ch`, including Extended Simple UI features, Andúril 1 turbo
-style, and the model-specific default settings.
+0135, `hank-emisar-2ch`, including Extended Simple UI features,
+Andúril 1 turbo style, and the model-specific default settings.
 
 I am focusing on the
 [generic diagram](https://github.com/dirtydancing/anduril-tikz-diagram);
